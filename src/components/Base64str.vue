@@ -4,14 +4,16 @@
             <el-col :span="12">
                 <el-input placeholder="请输入内容" v-model="inputStr" clearable></el-input>
             </el-col>
-            <el-col :span="6">
+        </el-row>
+        <el-row>
+            <el-col :span="8">
                 <el-button type="primary" @click="base64Encode">编码</el-button>
                 <el-button type="primary" @click="base64Decode">解码</el-button>
             </el-col>
         </el-row>
         <el-row>
             <el-col :span="12">
-                <el-input type="textarea" v-model="result"></el-input>
+                <el-input type="textarea" rows="5" v-model="result"></el-input>
             </el-col>
         </el-row>
         <el-row>
@@ -43,7 +45,7 @@
     import {Base64} from 'js-base64';
 
     export default {
-        name: 'Base64',
+        name: 'Base64str',
         data() {
             return {
                 inputStr: '',
