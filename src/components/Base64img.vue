@@ -1,32 +1,29 @@
 <template>
     <div class="main">
         <el-row :gutter="10">
-            <el-col :span="6">
-                <el-upload
-                        class="upload-demo"
-                        ref="upload"
-                        action="https://jsonplaceholder.typicode.com/posts/"
-                        :on-change="change"
-                        :file-list="fileList"
-                        :auto-upload="false">
-                    <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-                </el-upload>
-            </el-col>
+            <el-upload
+                    class="upload-demo"
+                    ref="upload"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-change="change"
+                    :file-list="fileList"
+                    :auto-upload="false">
+                <el-button slot="trigger" size="small"  type="primary" icon="el-icon-upload">
+                    选取文件
+                </el-button>
+                <span slot="tip" class="el-upload__tip">只能上传jpg/png文件</span>
+            </el-upload>
         </el-row>
         <el-row>
-            <el-col :span="20">
-                <el-input type="textarea" rows="10" v-model="base64Result"></el-input>
-            </el-col>
+            <el-input type="textarea" rows="10" placeholder="请先上传图片" v-model="base64Result"></el-input>
         </el-row>
         <el-row>
-            <el-col :span="6">
-                <el-button type="primary" @click="toImg">转为图片</el-button>
-            </el-col>
+            <el-button type="primary" size="small" icon="el-icon-picture-outline"  @click="toImg">base64字符转为图片</el-button>
         </el-row>
         <el-row>
             <img :src="imgSrc">
         </el-row>
-        <el-row>
+        <el-row class="tip">
             <ul>
                 <li>将图片转换为Base64编码，可以不用上传图片，即可保存到网页中。</li>
                 <li>生成的代码为"data:image/jpeg;base64, ....."，你只需要全部复制插入到相应位置。</li>
@@ -63,7 +60,7 @@
                 console.log(file);
                 self.imgSrc = '';
                 let type = file.raw.type;
-                if( !(type === 'image/png' || type === 'image/jpg')){
+                if (!(type === 'image/png' || type === 'image/jpg')) {
                     self.$message.error('请上传支持的图片');
                     return;
                 }
@@ -82,5 +79,8 @@
     .el-input,
     .el-button {
         margin: 10px;
+    }
+    .main{
+        margin-top: 25px;
     }
 </style>

@@ -1,22 +1,20 @@
 <template>
     <div class="main">
         <el-row :gutter="10">
-            <el-col :span="12">
+            <el-col :span="18">
                 <el-input placeholder="请输入内容" v-model="inputStr" clearable></el-input>
             </el-col>
             <el-col :span="6">
-                <el-button type="primary" @click="submit">提交</el-button>
+                <el-button type="primary" @click="submit" icon="el-icon-setting">加密</el-button>
             </el-col>
         </el-row>
         <el-row>
-            <el-col :span="12">
-                <el-table border :data="tableData">
-                    <el-table-column prop="name" label="类型" width="120"></el-table-column>
-                    <el-table-column prop="str" label="结果" width="380"></el-table-column>
-                </el-table>
-            </el-col>
+            <el-table border :data="tableData">
+                <el-table-column prop="name" label="类型" width="120"></el-table-column>
+                <el-table-column prop="str" label="结果"></el-table-column>
+            </el-table>
         </el-row>
-        <el-row>
+        <el-row class="tip">
             <p>
                 MD5（中文名为消息摘要算法第五版）为计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护。
                 该算法的文件号为RFC 1321（R.Rivest,MIT Laboratory for Computer Science and RSA Data Security Inc. April 1992）。
@@ -46,7 +44,7 @@
         data() {
             return {
                 inputStr: '',
-                tableData:[
+                tableData: [
                     {name: '字符串', str: ''},
                     {name: '32位小写', str: ''},
                     {name: '32位大写', str: ''},

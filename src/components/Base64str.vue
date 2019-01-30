@@ -1,22 +1,16 @@
 <template>
     <div class="main">
         <el-row :gutter="10">
-            <el-col :span="12">
-                <el-input placeholder="请输入内容" v-model="inputStr" clearable></el-input>
-            </el-col>
+            <el-input placeholder="请输入内容" v-model="inputStr" clearable></el-input>
         </el-row>
         <el-row>
-            <el-col :span="8">
-                <el-button type="primary" @click="base64Encode">编码</el-button>
-                <el-button type="primary" @click="base64Decode">解码</el-button>
-            </el-col>
+            <el-button type="primary" @click="base64Encode" size="small" icon="el-icon-d-arrow-right">编码</el-button>
+            <el-button type="primary" @click="base64Decode" size="small" icon="el-icon-d-arrow-left">解码</el-button>
         </el-row>
         <el-row>
-            <el-col :span="12">
-                <el-input type="textarea" rows="5" v-model="result"></el-input>
-            </el-col>
+            <el-input type="textarea" rows="5" v-model="result"></el-input>
         </el-row>
-        <el-row>
+        <el-row class="tip">
             <p>
                 Base64是网络上最常见的用于传输8Bit字节代码的编码方式之一，
                 在了解Base64编码之前，先了解几个基本概念：位、字节。

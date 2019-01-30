@@ -34,4 +34,16 @@
 </script>
 
 <style>
+    .el-main {
+        padding: 0 80px;
+    }
+
+    @media screen and (max-width: 800px) {
+        .el-aside {
+            display: none;
+        }
+        .el-main {
+            padding: 0 25px;
+        }
+    }
 </style>
