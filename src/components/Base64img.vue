@@ -20,7 +20,7 @@
         <el-row>
             <el-button type="primary" size="small" icon="el-icon-picture-outline"  @click="toImg">base64字符转为图片</el-button>
         </el-row>
-        <el-row>
+        <el-row class="image-div">
             <img :src="imgSrc">
         </el-row>
         <el-row class="tip">
@@ -60,7 +60,7 @@
                 console.log(file);
                 self.imgSrc = '';
                 let type = file.raw.type;
-                if (!(type === 'image/png' || type === 'image/jpg')) {
+                if (!(type === 'image/png' || type === 'image/jpeg' || type === 'image/jpg')) {
                     self.$message.error('请上传支持的图片');
                     return;
                 }
@@ -82,5 +82,9 @@
     }
     .main{
         margin-top: 25px;
+    }
+    .image-div{
+        width: 100%;
+        overflow: auto;
     }
 </style>
